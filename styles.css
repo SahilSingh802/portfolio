@@ -432,7 +432,8 @@ ul {
 /* Projects Section - New Grid */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Reduced from 340px for mobile */
     gap: 2.5rem;
 }
 
@@ -786,5 +787,40 @@ footer {
 
     .contact-form {
         padding: 1.5rem;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .name {
+        font-size: 2.2rem;
+    }
+
+    .greeting {
+        font-size: 1.1rem;
+    }
+
+    .tagline {
+        font-size: 1rem;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    .project-card {
+        margin: 0 0.5rem;
+    }
+
+    .timeline {
+        padding-left: 2rem;
+    }
+
+    .timeline-item::before {
+        left: -2.6rem;
     }
 }
