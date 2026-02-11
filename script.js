@@ -24,9 +24,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeBtn = document.getElementById('theme-toggle');
     const themeIcon = themeBtn.querySelector('i');
 
-    // Check saved preference
+    // Check saved preference or default to dark
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
+
+    // If saved theme is light, switch to light (since we default to dark in HTML)
+    if (savedTheme === 'light') {
+        document.body.removeAttribute('data-theme');
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+    } else {
+        // Default to dark (already set in HTML, but ensure icon is correct)
         document.body.setAttribute('data-theme', 'dark');
         themeIcon.classList.remove('fa-moon');
         themeIcon.classList.add('fa-sun');
