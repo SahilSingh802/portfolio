@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Scroll Animations (Intersection Observer) ---
     const observerOptions = {
-        threshold: 0.15, // Trigger when 15% of the element is visible
+        threshold: 0.1,
         rootMargin: "0px 0px -50px 0px"
     };
 
@@ -73,13 +73,31 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animate-visible');
-                observer.unobserve(entry.target); // Animate only once
+
+                // Trigger staggered animations for children if they exist
+                const hiddenChildren = entry.target.querySelectorAll('.hidden-el');
+                hiddenChildren.forEach((child, index) => {
+                    setTimeout(() => {
+                        child.classList.add('show-el');
+                    }, index * 150); // 150ms delay between each item
+                });
+
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
+    // Observe sections
     document.querySelectorAll('.animate-hidden').forEach(el => {
         observer.observe(el);
+    });
+
+    // Initialize staggered items
+    const staggerSelectors = ['.skill-item', '.project-card', '.cert-card', '.contact-item', '.social-links a'];
+    staggerSelectors.forEach(selector => {
+        document.querySelectorAll(selector).forEach(el => {
+            el.classList.add('hidden-el');
+        });
     });
 
     // --- Contact Form Handling ---
