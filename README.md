@@ -3,7 +3,7 @@
 Welcome to my personal portfolio website! This project showcases my skills, projects, and professional background as a Full Stack Web Developer and Computer Science student.
 
 ## 🚀 Live Demo
-[Insert Live Link Here]
+http://127.0.0.1:5500/index.html
 
 ## ✨ Features
 - **Responsive Design**: Fully optimized for desktop, tablet, and mobile devices.
