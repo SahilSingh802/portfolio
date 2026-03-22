@@ -19,12 +19,12 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body data-theme="dark">
+    <div class="noise-bg"></div>
 
     <!-- Navigation -->
     <nav class="navbar">
@@ -53,23 +53,34 @@
 
     <!-- Home Section -->
     <section id="home" class="hero">
-        <div class="container hero-content animate-hidden">
-            <span class="greeting">Hello, I'm</span>
-            <h1 class="name">Sahil</h1>
-            <p class="tagline">I am a passionate Full Stack Web Developer and Computer Science student who loves
-                building websites and solving problems.</p>
-            <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">View My Work</a>
-                <a href="Sahil_CV.pdf" class="btn btn-secondary" download><i class="fas fa-download"></i> Download
-                    Resume</a>
+        <div class="container hero-content animate-hidden" style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px; max-width: 800px; margin: 0 auto;">
+            
+            <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.2); border-radius: 100px; padding: 6px 16px; font-family: 'DM Mono', monospace; font-size: 13px; color: var(--primary-color); margin-bottom: 8px;">
+                <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--primary-color); display: inline-block;"></span>
+                <span>Available for Internships</span>
             </div>
+
+            <h1 class="name">Sahil Singh</h1>
+
+            <p class="hero-role" style="font-size: clamp(16px, 2.5vw, 22px); color: var(--text-light); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px;">MERN Stack Developer &nbsp;·&nbsp; CS Student</p>
+            
+            <p style="color: var(--text-light); line-height: 1.7; font-size: 1.1rem; max-width: 600px; margin-bottom: 24px;">
+                Building full-stack applications with an eye for design and system architecture. Passionate about clean code, DSA, and modern web development.
+            </p>
+
+            <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+                <a href="#projects" class="btn btn-primary"><i class="fas fa-code"></i> View Projects</a>
+                <a href="sahilnewcv.pdf" class="btn btn-secondary" download><i class="fas fa-download"></i> Download Resume</a>
+            </div>
+
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="section">
         <div class="container animate-hidden">
-            <h2 class="section-title">About Me</h2>
+            <div class="section-label">// ABOUT ME</div>
+            <h2 class="section-title">Crafting Ideas Into Reality</h2>
             <div class="about-content">
                 <p>
                     I am a Computer Science and Engineering student at Lovely Professional University, passionate about
@@ -88,44 +99,67 @@
 
     <!-- Skills Section -->
     <section id="skills" class="section bg-light">
-        <div class="container animate-hidden">
-            <h2 class="section-title">My Skills</h2>
+        <div class="container animate-hidden text-center">
+            <div class="section-label">// SKILLS</div>
+            <h2 class="section-title">Technical Arsenal</h2>
 
             <div class="skills-category">
-                <h3>Technical Skills</h3>
+                <h3>Languages</h3>
                 <div class="skills-grid">
-                    <div class="skill-item"><i class="fab fa-html5"></i> HTML</div>
-                    <div class="skill-item"><i class="fab fa-css3-alt"></i> CSS</div>
+                    <div class="skill-item">C++</div>
+                    <div class="skill-item"><i class="fab fa-python"></i> Python</div>
+                    <div class="skill-item"><i class="fab fa-java"></i> Java</div>
                     <div class="skill-item"><i class="fab fa-js"></i> JavaScript</div>
+                    <!-- <div class="skill-item">TypeScript</div> -->
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h3>Web Development</h3>
+                <div class="skills-grid">
+                    <div class="skill-item"><i class="fab fa-html5"></i> HTML5</div>
+                    <div class="skill-item"><i class="fab fa-css3-alt"></i> CSS3</div>
+                    <div class="skill-item">Tailwind CSS</div>
                     <div class="skill-item"><i class="fab fa-react"></i> React.js</div>
                     <div class="skill-item"><i class="fab fa-node-js"></i> Node.js</div>
                     <div class="skill-item">Express.js</div>
                     <div class="skill-item"><i class="fas fa-database"></i> MongoDB</div>
-                    <div class="skill-item"><i class="fas fa-database"></i> MySQL</div>
-                    <div class="skill-item"><i class="fas fa-database"></i> PostgreSQL</div>
-                    <div class="skill-item"><i class="fab fa-python"></i> Python</div>
-                    <div class="skill-item"><i class="fab fa-java"></i> Java</div>
-                    <div class="skill-item">C / C++</div>
-                    <div class="skill-item"><i class="fab fa-git-alt"></i> Git & GitHub</div>
+                    <div class="skill-item">Socket.io</div>
                 </div>
             </div>
 
             <div class="skills-category">
-                <h3>Non-Technical Skills</h3>
+                <h3>Databases & Tools</h3>
+                <div class="skills-grid">
+                    <div class="skill-item"><i class="fas fa-database"></i> MySQL</div>
+                    <div class="skill-item"><i class="fas fa-database"></i> MongoDB</div>
+                    <div class="skill-item"><i class="fab fa-git-alt"></i> Git</div>
+                    <div class="skill-item"><i class="fab fa-docker"></i> Docker</div>
+                    <div class="skill-item">CI/CD</div>
+                    <!-- <div class="skill-item">Postman</div> -->
+                    <div class="skill-item">Vercel</div>
+                    <div class="skill-item">Render</div>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h3>Core CS</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">DBMS & DSA</div>
+                    <div class="skill-item">OOPs</div>
+                    <div class="skill-item">Computer Networks</div>
+                    <div class="skill-item">Operating Systems</div>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h3>Soft Skills</h3>
                 <div class="skills-grid">
                     <div class="skill-item">Communication</div>
-                    <div class="skill-item">Teamwork</div>
-                    <div class="skill-item">Problem-solving</div>
+                    <div class="skill-item">Collaboration</div>
+                    <div class="skill-item">Problem-Solving</div>
                     <div class="skill-item">Adaptability</div>
-                    <div class="skill-item">Time Management</div>
-                </div>
-            </div>
-
-            <div class="skills-category">
-                <h3>Digital Marketing</h3>
-                <div class="skills-grid">
-                    <div class="skill-item">SEO Basics</div>
-                    <div class="skill-item">Social Media Marketing</div>
+                    <div class="skill-item">Teamwork</div>
                 </div>
             </div>
         </div>
@@ -134,52 +168,82 @@
     <!-- Projects Section -->
     <section id="projects" class="section">
         <div class="container animate-hidden">
-            <h2 class="section-title">Projects</h2>
+            <div class="section-label" style="text-align: center;">// PROJECTS</div>
+            <h2 class="section-title">Things I've Built</h2>
             <div class="projects-grid">
                 <!-- Project 1 -->
-                <!-- Project 1 -->
                 <div class="project-card">
-                    <div class="project-image gradient-1">
-                        <!-- Placeholder for project image -->
-                        <i class="fas fa-calendar-check"></i>
+                    <div class="project-image">
+                        <img src="codeexplain.png" alt="AI Code Explainer" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="project-info">
-                        <h3>Exam Invigilation Planner</h3>
-                        <p class="project-tags">C++ | Graph Theory | STL</p>
+                        <h3>AI Code Explainer</h3>
+                        <p class="project-tags">MERN | Tailwind | LLM APIs</p>
                         <p class="project-desc">
-                            Designed a graph-coloring-based scheduler ensuring 100% conflict-free
-                            invigilator allocation across 120+ exams.
-                            Optimized greedy coloring logic using STL to reduce scheduling time by 65%.
+                            Engineered an AI-powered web app to generate code explanations, complexity analysis, and optimization suggestions. Integrated LLM APIs with MERN stack for real-time code processing.
                         </p>
                         <div class="project-links">
-                            <a href="https://github.com/SahilSingh802/Exam-Invilagator-Duty-Planner"
-                                target="_blank"><i class="fab fa-github"></i> Source</a>
-                            <!-- <a href="#" class="btn-link" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a> -->
+                            <a href="https://github.com/SahilSingh802/codeExplain" class="btn-link" target="_blank"><i class="fab fa-github"></i> Source</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 2 -->
-                <!-- Project 2 -->
                 <div class="project-card">
-                    <div class="project-image gradient-2">
-                        <!-- Placeholder for project image -->
-                        <i class="fas fa-heartbeat"></i>
+                    <div class="project-image">
+                        <img src="imagine.png" alt="Imagine - AI Image Generator" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="project-info">
-                        <h3>Clinic Management System</h3>
-                        <p class="project-tags">PHP | MySQL | Tailwind CSS</p>
+                        <h3>Imagine – AI Image Generator</h3>
+                        <p class="project-tags">MERN | Tailwind | AI APIs</p>
                         <p class="project-desc">
-                            Built a secure web system managing 300+ patient records, appointments, and billing.
-                            Implemented hashed authentication and optimized SQL queries. Achieved a Lighthouse 98% score
-                            for UI performance.
+                            Architected a full-stack MERN application for real-time image generation and storage from text prompts. Improved processing efficiency by 30% through optimized API handling.
                         </p>
                         <div class="project-links">
-                            <a href="https://github.com/SahilSingh802/clinic_management_system" class="btn-link"
-                                target="_blank"><i class="fab fa-github"></i> Source</a>
-                            <!-- <a href="#" class="btn-link" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a> -->
+                            <a href="https://github.com/SahilSingh802/Imagine" class="btn-link" target="_blank"><i class="fab fa-github"></i> Source</a>
                         </div>
                     </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-image gradient-1">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>Exam Invigilation Duty Planner</h3>
+                        <p class="project-tags">C++ | Graph Theory | STL</p>
+                        <p class="project-desc">
+                            Designed a graph-coloring-based scheduler ensuring conflict-free invigilator allocation. Optimized scheduling using greedy algorithms and STL.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://github.com/SahilSingh802/Exam-Invilagator-Duty-Planner" class="btn-link" target="_blank"><i class="fab fa-github"></i> Source</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competitive Programming Section -->
+    <section id="cp" class="section">
+        <div class="container animate-hidden">
+            <div class="section-label" style="text-align: center; margin-bottom: 20px;">// COMPETITIVE PROGRAMMING</div>
+            <h2 class="section-title">Problem Solving</h2>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+                <div class="project-card" style="padding: 32px; background: linear-gradient(135deg, var(--card-bg) 0%, var(--bg-alt) 100%);">
+                    <div style="font-size: 36px; margin-bottom: 12px;">🔥</div>
+                    <div style="font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-light); letter-spacing: 2px; margin-bottom: 8px;">LEETCODE RATING</div>
+                    <div style="font-family: 'Syne', sans-serif; font-weight: 800; font-size: 52px; color: var(--secondary-color); line-height: 1;">1656</div>
+                    <div style="font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text-light); margin-top: 8px;">Demonstrating strong competitive problem-solving skills</div>
+                </div>
+
+                <div class="project-card" style="padding: 32px; background: linear-gradient(135deg, var(--card-bg) 0%, var(--bg-alt) 100%);">
+                    <div style="font-size: 36px; margin-bottom: 12px;">✅</div>
+                    <div style="font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-light); letter-spacing: 2px; margin-bottom: 8px;">PROBLEMS SOLVED</div>
+                    <div style="font-family: 'Syne', sans-serif; font-weight: 800; font-size: 52px; color: var(--primary-color); line-height: 1;">150<span style="font-size: 28px;">+</span></div>
+                    <div style="font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text-light); margin-top: 8px;">Across arrays, trees, graphs, DP, and more</div>
                 </div>
             </div>
         </div>
@@ -188,52 +252,63 @@
     <!-- Education & Certificates Section -->
     <section id="education" class="section bg-light">
         <div class="container animate-hidden">
+            <div class="section-label" style="text-align: center;">// TIMELINE</div>
             <h2 class="section-title">Education & Certifications</h2>
 
             <div class="timeline">
                 <div class="timeline-item">
                     <h4>Bachelor of Technology - CSE</h4>
                     <p class="institution">Lovely Professional University | Phagwara, Punjab</p>
-                    <p class="duration">Since August 2023</p>
+                    <p class="duration">August 2023 - Present</p>
                     <p class="details">CGPA: 7.4</p>
                 </div>
                 <div class="timeline-item">
                     <h4>Intermediate (Schooling)</h4>
                     <p class="institution">D C Model Senior Secondary School | Ambala, Haryana</p>
                     <p class="duration">April 2021 – March 2023</p>
-                    <p class="details">Percentage: 79%</p>
+                    <p class="details">Percentage: 78.9%</p>
+                </div>
+            </div>
+
+            <h3 class="subsection-title">Training</h3>
+            <div class="timeline" style="margin-bottom: 3rem;">
+                <div class="timeline-item">
+                    <h4>Mastering C++ (OOP to Dynamic Programming)</h4>
+                    <p class="institution">Summer Training</p>
+                    <p class="duration">May 2025 – Jul 2025</p>
+                    <p class="details">Intensive 6-week training on advanced C++ covering OOP, STL, and DP. Applied DSA concepts to design an Exam Invigilation Duty Planner.</p>
                 </div>
             </div>
 
             <h3 class="subsection-title">Certifications</h3>
             <div class="certificates-grid">
                 <div class="cert-card">
-                    <h4>Quantitative Research Job Simulation</h4>
-                    <p>J.P. Morgan (Forage)</p>
-                    <span class="date">October 2025</span>
+                    <h4>Build Generative AI Apps and Solutions</h4>
+                    <p>Infosys-Springboard</p>
+                    <span class="date">April 2025</span>
                 </div>
                 <div class="cert-card">
-                    <h4>Introduction to Front-End Development</h4>
-                    <p>Meta</p>
-                    <span class="date">September 2025</span>
+                    <h4>Quantitative Research Job Simulation</h4>
+                    <p>J.P. Morgan (Forage)</p>
+                    <span class="date">September 2024</span>
                 </div>
                 <div class="cert-card">
                     <h4>OCI AI Foundations Associate</h4>
                     <p>Oracle</p>
-                    <span class="date">July 2025</span>
+                    <span class="date">September 2024</span>
                 </div>
                 <div class="cert-card">
-                    <h4>Python Programming</h4>
-                    <p>Microsoft / Skill India</p>
-                    <span class="date">June 2025</span>
+                    <h4>Bits & Bytes of Computer Networking</h4>
+                    <p>Coursera</p>
+                    <span class="date">September 2024</span>
                 </div>
             </div>
 
             <h3 class="subsection-title">Achievements</h3>
             <ul class="achievements-list">
-                <li>Accomplished FreeCodeCamp Certified Developer</li>
-                <li>Clinched Silver Badge and 5 Star Rating in C++ on Hacker Rank</li>
-                <li>Earned Novice and Star badges on HackerEarth</li>
+                <li>Secured Good Rank in NPTEL exam and earned an Elite Certificate in Privacy and Security in Social Media.</li>
+                <li>Achieved a LeetCode rating of 1656, demonstrating strong problem-solving skills.</li>
+                <li>Solved 150+ DSA problems on LeetCode.</li>
             </ul>
 
         </div>
@@ -242,7 +317,8 @@
     <!-- Contact Section -->
     <section id="contact" class="section">
         <div class="container animate-hidden">
-            <h2 class="section-title">Get In Touch</h2>
+            <div class="section-label" style="text-align: center;">// CONTACT</div>
+            <h2 class="section-title">Let's Work Together</h2>
             <div class="contact-wrapper">
                 <div class="contact-info">
                     <div class="contact-item">
