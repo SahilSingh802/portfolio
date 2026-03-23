@@ -127,4 +127,45 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // --- Certificate Lightbox Modal ---
+    const certModal = document.getElementById('cert-modal');
+    const modalImg = document.getElementById('cert-modal-img');
+    const closeBtn = document.querySelector('.close-modal');
+    const certLinks = document.querySelectorAll('.cert-card');
+
+    if (certModal && certLinks.length > 0) {
+        certLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault(); // Stop normal link opening
+                const imgSrc = this.getAttribute('data-image');
+                if (imgSrc) {
+                    modalImg.src = imgSrc;
+                    certModal.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // Stop background scrolling
+                }
+            });
+        });
+
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                certModal.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        }
+
+        certModal.addEventListener('click', (e) => {
+            if (e.target === certModal) {
+                certModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && certModal.classList.contains('active')) {
+                certModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
 });

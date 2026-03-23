@@ -1,5 +1,26 @@
 /* Global Styles */
-:root, [data-theme="dark"] {
+:root {
+    --primary-color: #00acc1;
+    --secondary-color: #e64a19;
+    --text-color: #1e293b;
+    --text-light: #475569;
+    --bg-color: #f8fafc;
+    --bg-alt: #e2e8f0;
+    --card-bg: #ffffff;
+    --border-color: #cbd5e1;
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 20px 30px rgba(0,0,0,0.1);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --glass-border: 1px solid rgba(0, 0, 0, 0.05);
+    --glass-blur: blur(12px);
+    --card-glow: rgba(0, 172, 193, 0.1);
+    
+    --noise-line: rgba(0, 172, 193, 0.06);
+    --noise-glow: rgba(0, 172, 193, 0.15);
+}
+
+[data-theme="dark"] {
     --primary-color: #00d4ff;
     --secondary-color: #ff6b35;
     --text-color: #e8edf2;
@@ -15,6 +36,9 @@
     --glass-border: 1px solid rgba(0, 212, 255, 0.1);
     --glass-blur: blur(12px);
     --card-glow: rgba(0, 212, 255, 0.06);
+    
+    --noise-line: rgba(0, 212, 255, 0.03);
+    --noise-glow: rgba(0, 212, 255, 0.08);
 }
 
 * {
@@ -45,13 +69,13 @@ body {
 .noise-bg {
     position: fixed; inset: 0; pointer-events: none; z-index: 0;
     background-image:
-        linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
+        linear-gradient(var(--noise-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--noise-line) 1px, transparent 1px);
     background-size: 60px 60px;
 }
 .noise-bg::after {
     content: ''; position: absolute; inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,212,255,0.08) 0%, transparent 70%);
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, var(--noise-glow) 0%, transparent 70%);
 }
 
 .section-label {
@@ -369,6 +393,23 @@ ul {
     z-index: 2;
 }
 
+.profile-img {
+    width: 140px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    margin: 0;
+    transition: var(--transition);
+}
+
+.profile-img:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2);
+    border-color: var(--primary-color);
+}
+
 .greeting {
     font-size: 1.3rem;
     color: var(--primary-color);
@@ -634,12 +675,34 @@ ul {
     text-align: center;
     border: 1px solid var(--border-color);
     transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+}
+
+.cert-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(14, 19, 24, 0.85);
+    z-index: 1;
+    transition: var(--transition);
+}
+
+.cert-card > * {
+    position: relative;
+    z-index: 2;
 }
 
 .cert-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-md);
     border-color: var(--primary-color);
+}
+
+.cert-card:hover::before {
+    background: rgba(14, 19, 24, 0.4);
 }
 
 .cert-card h4 {
@@ -870,5 +933,90 @@ footer {
 
     .timeline-item::before {
         left: -2.6rem;
+    }
+}
+
+/* Certificate Lightbox Modal */
+.cert-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cert-modal.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+}
+
+.cert-modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 85vh;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+    object-fit: contain;
+    transform: scale(0.8);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cert-modal.active .cert-modal-content {
+    transform: scale(1);
+}
+
+.close-modal {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 2001;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: var(--primary-color);
+    text-decoration: none;
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .cert-modal {
+        padding-top: 20px;
+    }
+    .close-modal {
+        top: 15px;
+        right: 25px;
+        font-size: 30px;
+    }
+}
+
+/* Feature Center Project on Desktop */
+@media (min-width: 992px) {
+    .projects-grid .project-card:nth-child(2) {
+        transform: scale(1.06);
+        z-index: 10;
+        position: relative;
+        border-color: rgba(0, 212, 255, 0.5);
+        box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2);
+    }
+    .projects-grid .project-card:nth-child(2):hover {
+        transform: translateY(-10px) scale(1.09);
+        box-shadow: 0 20px 50px rgba(0, 212, 255, 0.3);
     }
 }
